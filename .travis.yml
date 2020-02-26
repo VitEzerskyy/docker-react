@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t vezerskyy/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true vezerskyy/docker-react npm run test
